@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact &mdash; Shuraim Asif Iqbal</title>
+  <meta name="description" content="Get in touch with Shuraim Asif Iqbal &mdash; full-stack product engineer." />
+  <meta name="theme-color" content="#080810" />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav class="nav" aria-label="Primary">
+    <div class="container">
+      <a href="index.html" class="logo">shuraim.dev</a>
+      <div class="nav-links">
+        <a href="index.html#work">Work</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
+      </div>
+      <a href="contact.html" class="nav-cta">Get in touch</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <a href="index.html#work">Work</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <header class="page-hero">
+    <div class="container">
+      <div class="section-label reveal">Contact</div>
+      <h1 class="reveal">Let&rsquo;s build something.</h1>
+      <p class="reveal">Open to full-stack roles, freelance builds, and interesting AI-product problems. Drop me a message and I&rsquo;ll get back within 24 hours.</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="contact-grid">
+        <form id="contact-form" class="reveal" novalidate>
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" autocomplete="name" placeholder="Your name" required />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required />
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="What are you building?" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" id="submit-btn">Send message</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+
+        <aside class="contact-side reveal">
+          <h3>Elsewhere</h3>
+          <div class="social-list">
+            <a href="https://github.com/shuraimAsif" target="_blank" rel="noopener">GitHub <span class="arrow">&nearr;</span></a>
+            <a href="https://www.linkedin.com/in/muhammad-shuraim-05673b367/" target="_blank" rel="noopener">LinkedIn <span class="arrow">&nearr;</span></a>
+            <a href="mailto:shuraimasif@email.com">Email <span class="arrow">&nearr;</span></a>
+          </div>
+
+          <div class="availability-note">
+            <p><span class="avail-dot"></span>Currently available for new opportunities. Response time is usually under 24 hours.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-left">
+        <div class="footer-logo">shuraim.dev</div>
+        <p>&copy; 2026 Shuraim Asif Iqbal. Built end to end.</p>
+      </div>
+      <div class="footer-right">
+        <div class="footer-links">
+          <a href="https://github.com/shuraimAsif" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/muhammad-shuraim-05673b367/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="footer-nav">
+          <a href="index.html#work">Work</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" aria-label="Scroll to top" id="scroll-top">&uarr;</button>
+  <script src="js/main.js"></script>
+</body>
+</html>

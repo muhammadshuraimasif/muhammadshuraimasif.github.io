@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prescripto — Doctor Appointment Booking | Shuraim Asif Iqbal</title>
+  <meta name="description" content="Prescripto is a full healthcare booking platform with patient, doctor, and admin dashboards, secure auth, and Stripe & Razorpay payments." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <nav class="nav" aria-label="Primary">
+    <div class="container">
+      <a href="../index.html" class="logo">shuraim.dev</a>
+      <div class="nav-links">
+        <a href="../index.html#work" class="active">Work</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+      </div>
+      <a href="../contact.html" class="nav-cta">Get in touch</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <a href="../index.html#work">Work</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+  </div>
+
+  <main>
+    <header class="project-hero">
+      <div class="container">
+        <a href="../index.html#work" class="back-link">← All work</a>
+
+        <div class="project-meta reveal">
+          <span class="status-badge">Flagship · Full-stack</span>
+        </div>
+        <h1 class="reveal">Prescripto — Doctor Appointment Booking</h1>
+        <p class="lede reveal">A complete healthcare booking platform featuring patient, doctor, and admin dashboards with secure authentication, Stripe &amp; Razorpay payment integration, appointment scheduling, and responsive dashboards.</p>
+
+        <div class="project-actions reveal">
+          <a href="https://github.com/" target="_blank" rel="noopener" class="btn btn-secondary">GitHub ↗</a>
+          <a href="https://prescripto.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary">Live Demo ↗</a>
+        </div>
+
+        <div class="hero-image-frame reveal">
+          <div class="chrome">
+            <span></span><span></span><span></span>
+            <span class="url">prescripto.vercel.app</span>
+          </div>
+          <img class="hero-shot" src="../images/prescripto-hero.png" alt="Prescripto homepage — book appointment with trusted doctors, find by speciality" loading="lazy" />
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <section class="project-section reveal">
+        <h2>Overview</h2>
+        <p>Prescripto is a three-sided marketplace for booking doctor appointments: patients search and book, doctors manage their schedule and consultations, and admins run the platform. It's built as a real product, not a demo — with actual payment processing, protected routes per role, and dashboards that respond to what's actually happening in the database.</p>
+      </section>
+
+      <section class="project-section reveal">
+        <h2>Features</h2>
+        <ul class="feature-list">
+          <li>Separate patient, doctor, and admin dashboards with role-based access</li>
+          <li>Secure authentication and session handling</li>
+          <li>Live payment processing through Stripe and Razorpay</li>
+          <li>Appointment scheduling with doctor availability</li>
+          <li>Fully responsive layouts across all three dashboards</li>
+        </ul>
+      </section>
+
+      <section class="project-section reveal">
+        <h2>Technology stack</h2>
+        <div class="stack-pills">
+          <span class="tag">React</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">Express</span>
+          <span class="tag">MongoDB</span>
+          <span class="tag">Stripe</span>
+          <span class="tag">Razorpay</span>
+        </div>
+      </section>
+
+      <section class="project-section reveal">
+        <h2>Challenges</h2>
+        <ul class="challenge-list">
+          <li>Keeping three different dashboards consistent while each needed different permissions and data shapes</li>
+          <li>Reconciling two payment providers (Stripe and Razorpay) behind one booking flow</li>
+          <li>Modeling appointment scheduling so doctor availability, time zones, and double-bookings stayed correct</li>
+        </ul>
+      </section>
+
+      <section class="project-section reveal">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item"><img src="../images/prescripto-hero.png" alt="Prescripto patient-facing homepage" loading="lazy" /></div>
+          <div class="gallery-item"><img src="../images/prescripto.png" alt="Prescripto doctor schedule dashboard" loading="lazy" /></div>
+          <div class="gallery-item"><img src="../images/prescripto-hero.png" alt="Prescripto admin panel overview" loading="lazy" style="object-position: bottom;"/></div>
+        </div>
+      </section>
+
+      <div class="project-footer-nav">
+        <a href="../index.html#work">← All work</a>
+        <a href="interview-mocker.html">Next: AI Interview Mocker →</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Shuraim Asif Iqbal</p>
+      <div class="footer-links">
+        <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/muhammad-shuraim-05673b367/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

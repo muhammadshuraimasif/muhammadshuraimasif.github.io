@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DeepSeek Chatbot Clone | Shuraim Asif Iqbal</title>
+  <meta name="description" content="A ChatGPT-inspired interface connected to the DeepSeek API, demonstrating streaming responses and modern chat UX." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <nav class="nav" aria-label="Primary">
+    <div class="container">
+      <a href="../index.html" class="logo">shuraim.dev</a>
+      <div class="nav-links">
+        <a href="../index.html#work" class="active">Work</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+      </div>
+      <a href="../contact.html" class="nav-cta">Get in touch</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <a href="../index.html#work">Work</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+  </div>
+
+  <main>
+    <header class="project-hero">
+      <div class="container">
+        <a href="../index.html#work" class="back-link">← All work</a>
+
+        <div class="project-meta reveal">
+          <span class="status-badge neutral">Learning Project</span>
+        </div>
+        <h1 class="reveal">DeepSeek Chatbot Clone</h1>
+        <p class="lede reveal">A ChatGPT-inspired interface connected to the DeepSeek API demonstrating streaming responses and modern chat UX.</p>
+
+        <div class="project-actions reveal">
+          <a href="https://github.com/" target="_blank" rel="noopener" class="btn btn-secondary">GitHub ↗</a>
+          <a href="https://deepseek-project-orpin.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary">Live Demo ↗</a>
+        </div>
+
+        <div class="hero-image-frame reveal">
+          <div class="chrome">
+            <span></span><span></span><span></span>
+            <span class="url">deepseek-project-orpin.vercel.app</span>
+          </div>
+          <img class="hero-shot" src="../images/deepseek-hero.png" alt="DeepSeek chatbot clone empty-state interface" loading="lazy" />
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <section class="project-section reveal">
+        <h2>Overview</h2>
+        <p>A learning-focused rebuild of a ChatGPT-style chat interface wired to the DeepSeek API. The goal was to get comfortable with streaming model output token-by-token and the UX details that make a chat interface feel responsive rather than laggy.</p>
+      </section>
+
+      <section class="project-section reveal">
+        <h2>Features</h2>
+        <ul class="feature-list">
+          <li>Streaming responses rendered as they arrive, not after the fact</li>
+          <li>Conversation history within a session</li>
+          <li>Familiar chat UX patterns — message bubbles, typing state, auto-scroll</li>
+        </ul>
+      </section>
+
+      <section class="project-section reveal">
+        <h2>Technology stack</h2>
+        <div class="stack-pills">
+          <span class="tag">Next.js</span>
+          <span class="tag">DeepSeek API</span>
+        </div>
+      </section>
+
+      <section class="project-section reveal">
+        <h2>Challenges</h2>
+        <ul class="challenge-list">
+          <li>Handling token streaming cleanly on the frontend without janky re-renders</li>
+          <li>Managing conversation state so context carried correctly across turns</li>
+        </ul>
+      </section>
+
+      <section class="project-section reveal">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item"><img src="../images/deepseek-hero.png" alt="DeepSeek chatbot clone interface" loading="lazy" /></div>
+          <div class="gallery-item"><img src="../images/deepseek-chatbot.png" alt="DeepSeek streaming response in action" loading="lazy" /></div>
+          <div class="gallery-item"><img src="../images/deepseek-hero.png" alt="DeepSeek conversation history" loading="lazy" style="object-position: bottom;"/></div>
+        </div>
+      </section>
+
+      <div class="project-footer-nav">
+        <a href="uiux-mockup.html">← UI/UX Mockup Generator</a>
+        <a href="../index.html#work">Back to all work →</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Shuraim Asif Iqbal</p>
+      <div class="footer-links">
+        <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/muhammad-shuraim-05673b367/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shuraim Asif Iqbal — Full-Stack Product Engineer</title>
+  <meta name="description" content="Shuraim Asif Iqbal is a full-stack product engineer building production-ready web apps and AI-powered products with React, Next.js, Node.js, and MongoDB." />
+  <meta name="theme-color" content="#080810" />
+  <meta property="og:title" content="Shuraim Asif Iqbal — Full-Stack Product Engineer" />
+  <meta property="og:description" content="I build full products end to end — backend, frontend, and the AI in between." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav class="nav" aria-label="Primary">
+    <div class="container">
+      <a href="index.html" class="logo">shuraim.dev</a>
+      <div class="nav-links">
+        <a href="#work" class="active">Work</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <a href="contact.html" class="nav-cta">Get in touch</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <a href="#work">Work</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <header class="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-blur" aria-hidden="true"></div>
+    <div class="container hero-content">
+      <span class="badge"><span class="dot"></span>Available for opportunities</span>
+      <h1>I build full products end to end &mdash; backend, frontend, and <span class="accent-text">the AI in between.</span></h1>
+      <p class="lede">Full-stack product engineer specializing in React, Next.js, Node.js, MongoDB, and AI-powered applications. I build products that solve real problems and are production ready.</p>
+      <div class="hero-actions">
+        <a href="projects/prescripto.html" class="btn btn-primary">View flagship project</a>
+        <a href="contact.html" class="btn btn-secondary">Get in touch</a>
+      </div>
+      <div class="terminal" data-typer='["npx create-product --stack=react,node,mongo", "deploying ai-interview-mocker to production...", "status: 4 apps live, 0 blocked tickets"]'>
+        <span class="prompt">shuraim@dev</span> ~ % <span class="typer-text"></span><span class="cursor"></span>
+      </div>
+    </div>
+  </header>
+
+  <div class="stats-strip">
+    <div class="container">
+      <div class="stats-grid reveal">
+        <div class="stat-item">
+          <div class="stat-num">4<span>+</span></div>
+          <div class="stat-label">Projects shipped</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">3<span>+</span></div>
+          <div class="stat-label">AI APIs integrated</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">Full<span>&#8209;</span>Stack</div>
+          <div class="stat-label">Frontend to backend</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">0<span>&rarr;</span>1</div>
+          <div class="stat-label">Product mindset</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section class="work" id="work">
+      <div class="container">
+        <div class="work-header reveal">
+          <div>
+            <div class="section-label">Selected work</div>
+            <h2>Four products, shipped end to end.</h2>
+          </div>
+          <p>From a full healthcare booking platform to small AI experiments &mdash; each one taught me something I use in the next build.</p>
+        </div>
+
+        <div class="project-grid">
+          <a class="project-card flagship reveal" href="projects/prescripto.html">
+            <div class="card-top">
+              <span class="status-badge">Flagship &middot; Full-stack</span>
+              <span class="card-arrow" aria-hidden="true">&nearr;</span>
+            </div>
+            <div class="card-preview" style="--tile-color: rgba(79,140,255,0.22);">
+              <div class="chrome"><span></span><span></span><span></span></div>
+              <img class="art-shot" src="images/prescripto-hero.png" alt="Prescripto doctor appointment booking homepage" loading="lazy" />
+            </div>
+            <h3>Prescripto &mdash; Doctor Appointment Booking</h3>
+            <p class="desc">A complete healthcare booking platform featuring patient, doctor, and admin dashboards with secure authentication, Stripe &amp; Razorpay payment integration, and appointment scheduling.</p>
+            <div class="tags">
+              <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Express</span>
+              <span class="tag">MongoDB</span><span class="tag">Stripe</span><span class="tag">Razorpay</span>
+            </div>
+          </a>
+
+          <a class="project-card reveal" href="projects/interview-mocker.html">
+            <div class="card-top">
+              <span class="status-badge">AI Product</span>
+              <span class="card-arrow" aria-hidden="true">&nearr;</span>
+            </div>
+            <div class="card-preview" style="--tile-color: rgba(79,140,255,0.2);">
+              <div class="chrome"><span></span><span></span><span></span></div>
+              <img class="art-shot" src="images/interview-mocker-hero.png" alt="AI Interview Mocker landing page" loading="lazy" />
+            </div>
+            <h3>AI Interview Mocker</h3>
+            <p class="desc">Generate interview questions based on job role and receive instant AI feedback powered by Google Gemini.</p>
+            <div class="tags"><span class="tag">Next.js</span><span class="tag">Gemini API</span></div>
+          </a>
+
+          <a class="project-card reveal" href="projects/uiux-mockup.html">
+            <div class="card-top">
+              <span class="status-badge">AI Product</span>
+              <span class="card-arrow" aria-hidden="true">&nearr;</span>
+            </div>
+            <div class="card-preview" style="--tile-color: rgba(79,140,255,0.2);">
+              <div class="chrome"><span></span><span></span><span></span></div>
+              <img class="art-shot" src="images/uiux-mockup-hero.png" alt="UI/UX Mockup Generator app screen" loading="lazy" />
+            </div>
+            <h3>UI/UX Mockup Generator</h3>
+            <p class="desc">Generate modern website and mobile app mockups across different industries using AI.</p>
+            <div class="tags"><span class="tag">Next.js</span><span class="tag">AI</span><span class="tag">SaaS</span></div>
+          </a>
+
+          <a class="project-card reveal" href="projects/deepseek-chatbot.html">
+            <div class="card-top">
+              <span class="status-badge neutral">Learning Project</span>
+              <span class="card-arrow" aria-hidden="true">&nearr;</span>
+            </div>
+            <div class="card-preview" style="--tile-color: rgba(255,255,255,0.06);">
+              <div class="chrome"><span></span><span></span><span></span></div>
+              <img class="art-shot" src="images/deepseek-hero.png" alt="DeepSeek chatbot clone interface" loading="lazy" />
+            </div>
+            <h3>DeepSeek Chatbot Clone</h3>
+            <p class="desc">A ChatGPT-inspired interface connected to the DeepSeek API demonstrating streaming responses and modern chat UX.</p>
+            <div class="tags"><span class="tag">Next.js</span><span class="tag">DeepSeek API</span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-strip">
+      <div class="container">
+        <div class="section-label" style="justify-content: center;">Let's work together</div>
+        <h2>Got a product to build?</h2>
+        <p>Open to full-stack roles, freelance builds, and interesting AI-product problems. Let's talk.</p>
+        <div class="cta-btns">
+          <a href="contact.html" class="btn btn-primary">Start a conversation</a>
+          <a href="about.html" class="btn btn-secondary">Learn about me</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-left">
+        <div class="footer-logo">shuraim.dev</div>
+        <p>&copy; 2026 Shuraim Asif Iqbal. Built end to end.</p>
+      </div>
+      <div class="footer-right">
+        <div class="footer-links">
+          <a href="https://github.com/shuraimAsif" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/muhammad-shuraim-05673b367/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="footer-nav">
+          <a href="#work">Work</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" aria-label="Scroll to top" id="scroll-top">&uarr;</button>
+  <script src="js/main.js"></script>
+</body>
+</html>
