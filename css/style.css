@@ -19,6 +19,13 @@
   --green:        #4ade80;
   --purple:       #a78bfa;
 
+  /* glassmorphism variables */
+  --glass-bg:     rgba(255, 255, 255, 0.03);
+  --glass-dot:    rgba(255, 255, 255, 0.14);
+  --glass-nav:    rgba(8, 8, 16, 0.75);
+  --glass-nav-scrolled: rgba(8, 8, 16, 0.92);
+  --glass-menu:   rgba(8, 8, 16, 0.97);
+
   --font-display: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-body:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -30,6 +37,33 @@
   --ease:   cubic-bezier(0.16, 1, 0.3, 1);
   --nav-h:  68px;
   --shadow-card: 0 1px 3px rgba(0,0,0,0.4), 0 8px 32px rgba(0,0,0,0.3);
+  --shadow-hover: 0 20px 48px -14px rgba(0,0,0,0.7);
+  --shadow-float: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+html.light-mode {
+  --bg:           #f6f7fb;
+  --bg-elevated:  #ffffff;
+  --bg-card:      #ffffff;
+  --border:       rgba(0, 0, 0, 0.08);
+  --border-strong:rgba(0, 0, 0, 0.15);
+  --text:         #1a1a24;
+  --text-dim:     #4a4a5e;
+  --text-faint:   #6b6b80;
+  --accent:       #2563eb;
+  --accent-glow:  rgba(37, 99, 235, 0.2);
+  --accent-dim:   rgba(37, 99, 235, 0.08);
+  --accent-line:  rgba(37, 99, 235, 0.25);
+
+  --glass-bg:     rgba(0, 0, 0, 0.02);
+  --glass-dot:    rgba(0, 0, 0, 0.15);
+  --glass-nav:    rgba(255, 255, 255, 0.85);
+  --glass-nav-scrolled: rgba(255, 255, 255, 0.95);
+  --glass-menu:   rgba(255, 255, 255, 0.98);
+
+  --shadow-card: 0 4px 12px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.02);
+  --shadow-hover: 0 20px 48px -14px rgba(0,0,0,0.15);
+  --shadow-float: 0 4px 16px rgba(0,0,0,0.1);
 }
 
 /* reset */
@@ -112,7 +146,7 @@ button { font: inherit; cursor: pointer; }
   z-index: 100;
   display: flex;
   align-items: center;
-  background: rgba(8, 8, 16, 0.75);
+  background: var(--glass-nav);
   backdrop-filter: blur(16px) saturate(160%);
   -webkit-backdrop-filter: blur(16px) saturate(160%);
   border-bottom: 1px solid transparent;
@@ -120,7 +154,7 @@ button { font: inherit; cursor: pointer; }
 }
 .nav.is-scrolled {
   border-bottom-color: var(--border);
-  background: rgba(8, 8, 16, 0.92);
+  background: var(--glass-nav-scrolled);
   backdrop-filter: blur(24px) saturate(200%);
   -webkit-backdrop-filter: blur(24px) saturate(200%);
 }
@@ -211,7 +245,7 @@ button { font: inherit; cursor: pointer; }
 .mobile-menu {
   position: fixed;
   top: var(--nav-h); left: 0; right: 0;
-  background: rgba(8, 8, 16, 0.97);
+  background: var(--glass-menu);
   border-bottom: 1px solid var(--border);
   display: flex;
   flex-direction: column;
@@ -244,8 +278,8 @@ button { font: inherit; cursor: pointer; }
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    linear-gradient(to right, var(--glass-bg) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--glass-bg) 1px, transparent 1px);
   background-size: 64px 64px;
   mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 30%, transparent 100%);
   -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 30%, transparent 100%);
@@ -282,7 +316,7 @@ button { font: inherit; cursor: pointer; }
   font-size: 12px;
   color: var(--text-dim);
   border: 1px solid var(--border-strong);
-  background: rgba(255,255,255,0.03);
+  background: var(--glass-bg);
   border-radius: 999px;
   padding: 7px 14px 7px 10px;
   margin-bottom: 28px;
@@ -376,7 +410,7 @@ button { font: inherit; cursor: pointer; }
   font-size: 13px;
   color: var(--text-dim);
   border: 1px solid var(--border);
-  background: rgba(255,255,255,0.02);
+  background: var(--glass-bg);
   border-radius: var(--radius-sm);
   padding: 14px 18px;
   max-width: 520px;
@@ -528,7 +562,7 @@ button { font: inherit; cursor: pointer; }
   border-color: var(--accent-line);
   box-shadow:
     0 0 0 1px var(--accent-line),
-    0 20px 48px -14px rgba(0,0,0,0.7),
+    var(--shadow-hover),
     0 0 48px -18px rgba(79,140,255,0.2);
 }
 
@@ -553,7 +587,7 @@ button { font: inherit; cursor: pointer; }
   align-items: center;
   gap: 6px;
   padding: 0 10px;
-  background: rgba(255,255,255,0.025);
+  background: var(--glass-bg);
   border-bottom: 1px solid var(--border);
   flex-shrink: 0;
   z-index: 1;
@@ -561,7 +595,7 @@ button { font: inherit; cursor: pointer; }
 }
 .card-preview .chrome span {
   width: 7px; height: 7px; border-radius: 50%;
-  background: rgba(255,255,255,0.14);
+  background: var(--glass-dot);
 }
 
 /* art-shot � actual screenshot */
@@ -601,7 +635,7 @@ button { font: inherit; cursor: pointer; }
 .status-badge.neutral {
   color: var(--text-dim);
   border-color: var(--border-strong);
-  background: rgba(255,255,255,0.03);
+  background: var(--glass-bg);
 }
 .card-arrow {
   color: var(--text-faint);
@@ -993,11 +1027,11 @@ button { font: inherit; cursor: pointer; }
   align-items: center;
   gap: 6px;
   padding: 0 14px;
-  background: rgba(255,255,255,0.02);
+  background: var(--glass-bg);
   border-bottom: 1px solid var(--border);
   flex-shrink: 0;
 }
-.hero-image-frame .chrome span { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,0.14); }
+.hero-image-frame .chrome span { width: 9px; height: 9px; border-radius: 50%; background: var(--glass-dot); }
 .hero-image-frame .chrome .url {
   margin-left: 10px;
   font-family: var(--font-mono);
@@ -1176,7 +1210,7 @@ button { font: inherit; cursor: pointer; }
   z-index: 90;
   font-size: 16px;
   pointer-events: none;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  box-shadow: var(--shadow-float);
 }
 .scroll-top.is-visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
 .scroll-top:hover { border-color: var(--accent-line); color: var(--accent); background: var(--accent-dim); }
@@ -1186,3 +1220,26 @@ button { font: inherit; cursor: pointer; }
   .nav-links, .nav-cta { display: none; }
   .nav-toggle { display: flex; }
 }
+
+/* theme toggle */
+.theme-toggle {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s var(--ease), background 0.2s var(--ease);
+}
+.theme-toggle:hover {
+  color: var(--accent);
+  background: var(--accent-dim);
+}
+html.light-mode .theme-toggle svg circle,
+html.light-mode .theme-toggle svg line {
+  /* optional: maybe we just keep the sun icon or flip it */
+}
+

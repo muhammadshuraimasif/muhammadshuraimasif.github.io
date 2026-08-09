@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/style.css" />
+<script>if(localStorage.getItem("theme")==="light" || (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: light)").matches)) document.documentElement.classList.add("light-mode");</script>
 </head>
 <body>
 
@@ -16,6 +17,7 @@
     <div class="container">
       <a href="../index.html" class="logo">shuraim.dev</a>
       <div class="nav-links">
+        <button class="theme-toggle" aria-label="Toggle theme"><svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button>
         <a href="../index.html#work" class="active">Work</a>
         <a href="../about.html">About</a>
         <a href="../contact.html">Contact</a>
@@ -44,7 +46,7 @@
         <p class="lede reveal">A complete healthcare booking platform featuring patient, doctor, and admin dashboards with secure authentication, Stripe &amp; Razorpay payment integration, appointment scheduling, and responsive dashboards.</p>
 
         <div class="project-actions reveal">
-          <a href="https://github.com/" target="_blank" rel="noopener" class="btn btn-secondary">GitHub ↗</a>
+          <a href="https://github.com/shuraimasifiqbal/prescripto" target="_blank" rel="noopener" class="btn btn-secondary">GitHub ↗</a>
           <a href="https://prescripto.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary">Live Demo ↗</a>
         </div>
 

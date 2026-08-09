@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initCardMouseGlow();
   initStaggeredCards();
   initScrollTop();
+  initThemeToggle();
 });
 
 /* ---------------------------- sticky nav + mobile menu ------------------ */
@@ -157,6 +158,18 @@ function initStaggeredCards() {
   const cards = document.querySelectorAll(".project-grid .project-card");
   cards.forEach((card, i) => {
     card.style.transitionDelay = `${i * 60}ms`;
+  });
+}
+
+
+/* ---------------------------- theme toggle ------------------------------- */
+function initThemeToggle() {
+  const toggleBtn = document.querySelector('.theme-toggle');
+  if (!toggleBtn) return;
+
+  toggleBtn.addEventListener('click', () => {
+    const isLight = document.documentElement.classList.toggle('light-mode');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
   });
 }
 
