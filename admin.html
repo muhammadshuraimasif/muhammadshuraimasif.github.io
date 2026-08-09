@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard &mdash; Shuraim Asif Iqbal</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#080810" />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .admin-section { display: none; }
+    .admin-section.active { display: block; }
+    .admin-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); padding: 2rem; border-radius: 12px; margin-bottom: 2rem; }
+    .admin-card h3 { margin-top: 0; margin-bottom: 1.5rem; }
+    .logout-btn { background: transparent; color: var(--text-muted); border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; margin-top: 1rem; display: inline-block; }
+    .logout-btn:hover { background: rgba(255,255,255,0.05); color: var(--text-primary); }
+    .admin-tabs { display: flex; gap: 1rem; margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; }
+    .admin-tab { background: transparent; border: none; color: var(--text-muted); font-size: 1rem; cursor: pointer; padding: 0.5rem; }
+    .admin-tab.active { color: var(--accent); font-weight: 500; border-bottom: 2px solid var(--accent); }
+    #login-error { color: #ff5555; margin-top: 1rem; display: none; }
+    #save-status { margin-left: 1rem; color: var(--accent); font-size: 0.9rem; transition: opacity 0.3s; opacity: 0; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" aria-label="Primary">
+    <div class="container">
+      <a href="index.html" class="logo">shuraim.dev</a>
+      <div class="nav-links">
+        <a href="index.html#work">Work</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <a href="index.html" class="nav-cta">Back to site</a>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="container">
+      <div class="section-label">Restricted</div>
+      <h1>Admin Dashboard</h1>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      
+      <!-- LOGIN SECTION -->
+      <div id="login-section" class="admin-section active admin-card" style="max-width: 400px; margin: 0 auto;">
+        <h3>Login to continue</h3>
+        <form id="login-form">
+          <div class="field">
+            <label for="admin-email">Email</label>
+            <input type="email" id="admin-email" required />
+          </div>
+          <div class="field">
+            <label for="admin-password">Password</label>
+            <input type="password" id="admin-password" required />
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+          <div id="login-error">Invalid credentials.</div>
+        </form>
+      </div>
+
+      <!-- DASHBOARD SECTION -->
+      <div id="dashboard-section" class="admin-section">
+        <div class="admin-tabs">
+          <button class="admin-tab active" data-target="tab-about">About & Skills</button>
+          <button class="admin-tab" data-target="tab-projects">Works (Projects)</button>
+        </div>
+
+        <div id="tab-about" class="tab-content">
+          <div class="admin-card">
+            <h3>Manage About Content</h3>
+            <form id="about-form">
+              <div class="field">
+                <label for="about-text">About Me Text</label>
+                <textarea id="about-text" rows="6" placeholder="I am a full-stack engineer..."></textarea>
+              </div>
+              <div class="field">
+                <label for="skills-list">Skills (Comma separated)</label>
+                <input type="text" id="skills-list" placeholder="React, Node.js, MongoDB, ..." />
+              </div>
+              <div style="display: flex; align-items: center;">
+                <button type="submit" class="btn btn-primary">Download new data.js</button>
+                <span id="save-status">Downloading... Replace your js/data.js!</span>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div id="tab-projects" class="tab-content" style="display: none;">
+          <div class="admin-card">
+            <h3>Manage Projects</h3>
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">Enter projects as a valid JSON array.</p>
+            <form id="projects-form">
+              <div class="field">
+                <label for="projects-json">Projects Data (JSON)</label>
+                <textarea id="projects-json" rows="15" style="font-family: var(--font-mono); font-size: 0.9rem;"></textarea>
+              </div>
+              <div style="display: flex; align-items: center;">
+                <button type="submit" class="btn btn-primary">Download new data.js</button>
+                <span id="proj-save-status" class="save-status" style="margin-left: 1rem; color: var(--accent); opacity: 0; transition: 0.3s;">Downloading... Replace your js/data.js!</span>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <button id="logout-btn" class="logout-btn">Logout</button>
+      </div>
+
+    </div>
+  </main>
+
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>

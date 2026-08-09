@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -52,13 +52,15 @@
         </div>
 
         <div class="bio reveal">
-          <p><strong>My name is Shuraim Asif Iqbal.</strong> I&rsquo;m a Full-Stack Product Engineer focused on building production-ready web applications with React, Next.js, Node.js, MongoDB, and modern AI APIs. I enjoy creating products that combine excellent user experience with scalable backend architecture.</p>
-          <p>I care about the whole path from a blank repo to something real people use &mdash; that means owning the database schema as much as the pixel spacing, and treating an AI API as just another service to design around, not a magic box.</p>
-          <p>I&rsquo;m always building something. Currently focused on shipping products that actually solve problems, not just demos that impress in a slide deck.</p>
+          <div id="dynamic-bio">
+            <p><strong>My name is Shuraim Asif Iqbal.</strong> I&rsquo;m a Full-Stack Product Engineer focused on building production-ready web applications with React, Next.js, Node.js, MongoDB, and modern AI APIs. I enjoy creating products that combine excellent user experience with scalable backend architecture.</p>
+            <p>I care about the whole path from a blank repo to something real people use &mdash; that means owning the database schema as much as the pixel spacing, and treating an AI API as just another service to design around, not a magic box.</p>
+            <p>I&rsquo;m always building something. Currently focused on shipping products that actually solve problems, not just demos that impress in a slide deck.</p>
+          </div>
 
           <div class="skills-block">
             <div class="section-label">Skills</div>
-            <div class="skills-grid">
+            <div class="skills-grid" id="dynamic-skills">
               <div class="skill-group">
                 <h4>Frontend</h4>
                 <ul>
@@ -162,5 +164,6 @@
 
   <button class="scroll-top" aria-label="Scroll to top" id="scroll-top">&uarr;</button>
   <script src="js/main.js"></script>
+  <script type="module" src="js/data.js"></script>
 </body>
 </html>
