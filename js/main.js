@@ -128,10 +128,11 @@ function initContactForm() {
       return;
     }
 
-    // No backend wired up yet — this is a static site.
-    // Replace this block with a real submit (e.g. Netlify Forms,
-    // Formspree, or your own API route) when you deploy.
-    status.textContent = `Thanks, ${name.split(" ")[0]}. Message captured locally — wire up a form handler to actually send it.`;
+    const subject = encodeURIComponent("New Message from Portfolio Contact Form");
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+    window.location.href = `mailto:shuraimasif@email.com?subject=${subject}&body=${body}`;
+
+    status.textContent = `Thanks, ${name.split(" ")[0]}. Opening your email client...`;
     status.classList.add("ok");
     form.reset();
   });

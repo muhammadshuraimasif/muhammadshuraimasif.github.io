@@ -1,5 +1,5 @@
-﻿/* ==========================================================================
-   shuraim.dev — design tokens
+/* ==========================================================================
+   shuraim.dev � design tokens
    Palette: deep navy base, electric blue accent, mono for system/dev voice
    ========================================================================== */
 
@@ -10,8 +10,8 @@
   --border:       rgba(255, 255, 255, 0.07);
   --border-strong:rgba(255, 255, 255, 0.13);
   --text:         #eeeeff;
-  --text-dim:     #8888aa;
-  --text-faint:   #50506a;
+  --text-dim:     #a8a8c8;
+  --text-faint:   #8a8aab;
   --accent:       #4f8cff;
   --accent-glow:  rgba(79, 140, 255, 0.45);
   --accent-dim:   rgba(79, 140, 255, 0.11);
@@ -133,7 +133,7 @@ button { font: inherit; cursor: pointer; }
 .logo {
   font-family: var(--font-mono);
   font-weight: 500;
-  font-size: 15px;
+  font-size: 16px;
   letter-spacing: -0.01em;
   color: var(--text);
   display: flex;
@@ -157,7 +157,7 @@ button { font: inherit; cursor: pointer; }
   gap: 36px;
 }
 .nav-links a {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--text-dim);
   position: relative;
   padding: 6px 0;
@@ -180,7 +180,7 @@ button { font: inherit; cursor: pointer; }
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-sm);
   padding: 8px 18px;
-  font-size: 13.5px;
+  font-size: 16px;
   color: var(--text);
   transition: border-color 0.2s var(--ease), background 0.2s var(--ease), color 0.2s var(--ease);
 }
@@ -196,7 +196,7 @@ button { font: inherit; cursor: pointer; }
   gap: 5px;
   background: none;
   border: none;
-  padding: 8px;
+  padding: 12px;
 }
 .nav-toggle span {
   width: 20px; height: 1.5px;
@@ -228,7 +228,7 @@ button { font: inherit; cursor: pointer; }
   padding: 15px 0;
   border-bottom: 1px solid var(--border);
   color: var(--text-dim);
-  font-size: 15px;
+  font-size: 16px;
   transition: color 0.2s;
 }
 .mobile-menu a:last-child { border-bottom: none; }
@@ -336,7 +336,7 @@ button { font: inherit; cursor: pointer; }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 14.5px;
+  font-size: 16px;
   font-weight: 500;
   padding: 12px 22px;
   border-radius: var(--radius-sm);
@@ -364,7 +364,7 @@ button { font: inherit; cursor: pointer; }
 }
 .btn-ghost {
   color: var(--text-dim);
-  font-size: 13.5px;
+  font-size: 16px;
   border: 1px solid var(--border);
   padding: 9px 16px;
 }
@@ -419,6 +419,7 @@ button { font: inherit; cursor: pointer; }
   grid-template-columns: repeat(4, 1fr);
 }
 @media (max-width: 600px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 400px) { .stats-grid { grid-template-columns: 1fr; } }
 .stat-item {
   padding: 36px 28px;
   border-right: 1px solid var(--border);
@@ -429,6 +430,10 @@ button { font: inherit; cursor: pointer; }
   .stat-item:nth-child(3) { border-right: 1px solid var(--border); }
   .stat-item { border-bottom: 1px solid var(--border); }
   .stat-item:last-child, .stat-item:nth-child(3) { border-bottom: none; }
+}
+@media (max-width: 400px) {
+  .stat-item { border-right: none !important; border-bottom: 1px solid var(--border) !important; }
+  .stat-item:last-child { border-bottom: none !important; }
 }
 .stat-num {
   font-family: var(--font-display);
@@ -468,7 +473,7 @@ button { font: inherit; cursor: pointer; }
 }
 .work-header p {
   color: var(--text-faint);
-  font-size: 14px;
+  font-size: 16px;
   max-width: 320px;
   line-height: 1.6;
 }
@@ -527,7 +532,7 @@ button { font: inherit; cursor: pointer; }
     0 0 48px -18px rgba(79,140,255,0.2);
 }
 
-/* card preview — screenshot area */
+/* card preview � screenshot area */
 .card-preview {
   border-radius: var(--radius-md);
   border: 1px solid var(--border);
@@ -559,7 +564,7 @@ button { font: inherit; cursor: pointer; }
   background: rgba(255,255,255,0.14);
 }
 
-/* art-shot — actual screenshot */
+/* art-shot � actual screenshot */
 .art-shot {
   position: absolute;
   top: 26px;
@@ -618,7 +623,7 @@ button { font: inherit; cursor: pointer; }
 }
 .project-card p.desc {
   color: var(--text-dim);
-  font-size: 13.5px;
+  font-size: 16px;
   line-height: 1.65;
 }
 
@@ -668,7 +673,7 @@ button { font: inherit; cursor: pointer; }
 }
 .cta-strip p {
   color: var(--text-dim);
-  font-size: 15.5px;
+  font-size: 16px;
   margin-bottom: 36px;
   max-width: 460px;
   margin-left: auto;
@@ -693,7 +698,7 @@ button { font: inherit; cursor: pointer; }
 .page-hero p {
   color: var(--text-dim);
   max-width: 560px;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.65;
 }
 
@@ -750,7 +755,7 @@ button { font: inherit; cursor: pointer; }
 
 .bio p {
   color: var(--text-dim);
-  font-size: 15.5px;
+  font-size: 16px;
   line-height: 1.8;
   max-width: 640px;
   margin-bottom: 18px;
@@ -789,7 +794,7 @@ button { font: inherit; cursor: pointer; }
 }
 .skill-group ul li {
   color: var(--text-dim);
-  font-size: 13.5px;
+  font-size: 16px;
   padding: 6px 0;
   border-bottom: 1px solid var(--border);
   display: flex;
@@ -823,12 +828,12 @@ button { font: inherit; cursor: pointer; }
 }
 .timeline-item h4 {
   font-family: var(--font-display);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   margin-bottom: 6px;
   letter-spacing: -0.01em;
 }
-.timeline-item p { color: var(--text-dim); font-size: 14px; line-height: 1.65; }
+.timeline-item p { color: var(--text-dim); font-size: 16px; line-height: 1.65; }
 
 .about-cta {
   margin-top: 64px;
@@ -839,7 +844,7 @@ button { font: inherit; cursor: pointer; }
   gap: 20px;
   flex-wrap: wrap;
 }
-.about-cta p { color: var(--text-dim); font-size: 14px; flex: 1; min-width: 200px; }
+.about-cta p { color: var(--text-dim); font-size: 16px; flex: 1; min-width: 200px; }
 
 /* contact page */
 .contact-grid {
@@ -868,7 +873,7 @@ button { font: inherit; cursor: pointer; }
   padding: 13px 14px;
   color: var(--text);
   font-family: var(--font-body);
-  font-size: 14.5px;
+  font-size: 16px;
   transition: border-color 0.2s var(--ease), background 0.2s var(--ease), box-shadow 0.2s var(--ease);
   outline: none;
 }
@@ -908,7 +913,7 @@ button { font: inherit; cursor: pointer; }
   padding: 15px 0;
   border-bottom: 1px solid var(--border);
   color: var(--text-dim);
-  font-size: 14.5px;
+  font-size: 16px;
   transition: color 0.2s var(--ease), padding-left 0.2s var(--ease);
 }
 .social-list a:hover { color: var(--accent); padding-left: 4px; }
@@ -1007,7 +1012,7 @@ button { font: inherit; cursor: pointer; }
   background: radial-gradient(circle at 30% 20%, var(--tile-color, rgba(79,140,255,0.2)), transparent 65%);
   font-family: var(--font-mono);
   color: var(--text-faint);
-  font-size: 14px;
+  font-size: 16px;
   text-align: center;
   padding: 20px;
 }
@@ -1027,11 +1032,11 @@ button { font: inherit; cursor: pointer; }
   letter-spacing: -0.02em;
   margin-bottom: 18px;
 }
-.project-section p { color: var(--text-dim); font-size: 15px; line-height: 1.8; margin-bottom: 14px; }
+.project-section p { color: var(--text-dim); font-size: 16px; line-height: 1.8; margin-bottom: 14px; }
 
 .feature-list li, .challenge-list li {
   color: var(--text-dim);
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.7;
   padding: 10px 0 10px 22px;
   border-bottom: 1px solid var(--border);
@@ -1088,7 +1093,7 @@ button { font: inherit; cursor: pointer; }
 }
 .project-footer-nav a {
   font-family: var(--font-mono);
-  font-size: 13.5px;
+  font-size: 16px;
   color: var(--text-dim);
   transition: color 0.2s var(--ease);
 }
@@ -1108,7 +1113,7 @@ button { font: inherit; cursor: pointer; }
 }
 .footer-left .footer-logo {
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: 16px;
   color: var(--text);
   font-weight: 500;
   margin-bottom: 6px;
@@ -1136,7 +1141,7 @@ button { font: inherit; cursor: pointer; }
 }
 .footer-links { display: flex; gap: 24px; }
 .footer-links a {
-  font-size: 13.5px;
+  font-size: 16px;
   color: var(--text-dim);
   transition: color 0.2s var(--ease);
 }
