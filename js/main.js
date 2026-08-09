@@ -161,6 +161,19 @@ function initStaggeredCards() {
   });
 }
 
+/* ---------------------------- scroll top button -------------------------- */
+function initScrollTop() {
+  const btn = document.querySelector(".scroll-top");
+  if (!btn) return;
+
+  window.addEventListener("scroll", () => {
+    btn.classList.toggle("is-visible", window.scrollY > 300);
+  }, { passive: true });
+
+  btn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
 
 /* ---------------------------- theme toggle ------------------------------- */
 function initThemeToggle() {
