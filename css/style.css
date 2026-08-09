@@ -1243,3 +1243,8 @@ html.light-mode .theme-toggle svg line {
   /* optional: maybe we just keep the sun icon or flip it */
 }
 
+.theme-toggle .moon { display: none; }
+html.light-mode .theme-toggle .sun { display: none; }
+html.light-mode .theme-toggle .moon { display: block; }
+
+.mobile-menu .theme-toggle { margin: 10px 0; align-self: flex-start; }

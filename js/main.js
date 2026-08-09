@@ -164,12 +164,14 @@ function initStaggeredCards() {
 
 /* ---------------------------- theme toggle ------------------------------- */
 function initThemeToggle() {
-  const toggleBtn = document.querySelector('.theme-toggle');
-  if (!toggleBtn) return;
+  const toggleBtns = document.querySelectorAll('.theme-toggle');
+  if (!toggleBtns.length) return;
 
-  toggleBtn.addEventListener('click', () => {
-    const isLight = document.documentElement.classList.toggle('light-mode');
-    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isLight = document.documentElement.classList.toggle('light-mode');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
   });
 }
 
