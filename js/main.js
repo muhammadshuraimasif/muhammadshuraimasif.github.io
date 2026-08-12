@@ -110,13 +110,15 @@ function initTerminalTyper() {
 }
 
 /* ---------------------------- contact form -------------------------------- */
+/* ---------------------------- contact form -------------------------------- */
 function initContactForm() {
   const form = document.querySelector("#contact-form");
   if (!form) return;
 
   const status = form.querySelector(".form-status");
+  const submitBtn = document.querySelector("#submit-btn");
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const name = form.querySelector("#name").value.trim();
@@ -129,13 +131,35 @@ function initContactForm() {
       return;
     }
 
-    const subject = encodeURIComponent("New Message from Portfolio Contact Form");
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-    window.location.href = `mailto:shuraimasif@email.com?subject=${subject}&body=${body}`;
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+    status.textContent = "";
 
-    status.textContent = `Thanks, ${name.split(" ")[0]}. Opening your email client...`;
-    status.classList.add("ok");
-    form.reset();
+    try {
+      const response = await fetch("https://formspree.io/f/xoeadona", {
+        method: "POST",
+        headers: { "Accept": "application/json" },
+        body: new FormData(form)
+      });
+
+      if (response.ok) {
+        status.textContent = `Thanks, ${name.split(" ")[0]}. Your message reached me — I'll reply within 24 hours.`;
+        status.classList.add("ok");
+        form.reset();
+      } else {
+        const data = await response.json();
+        status.textContent = data.errors
+          ? data.errors.map((err) => err.message).join(", ")
+          : "Something went wrong. Please email me directly.";
+        status.classList.remove("ok");
+      }
+    } catch (err) {
+      status.textContent = "Network error — please try again or email me directly.";
+      status.classList.remove("ok");
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Send message";
+    }
   });
 }
 
