@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memory That Doesn't Reach Everywhere Isn't Memory | Shuraim Asif Iqbal</title>
+  <meta name="description"
+    content="Adding conversation history to an agent's final prompt wasn't enough — a look at why follow-up questions still failed, and the limits of a small local model." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <script>if (localStorage.getItem("theme") === "light" || (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: light)").matches)) document.documentElement.classList.add("light-mode");</script>
+</head>
+
+<body>
+
+  <nav class="nav" aria-label="Primary">
+    <div class="container">
+      <a href="../index.html" class="logo">shuraim.dev</a>
+      <div class="nav-links">
+        <button class="theme-toggle" aria-label="Toggle theme"><svg class="sun" width="18" height="18"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg><svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg></button>
+        <a href="../index.html#work">Work</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+      </div>
+      <a href="../contact.html" class="nav-cta">Get in touch</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <button class="theme-toggle" aria-label="Toggle theme"><svg class="sun" width="18" height="18" viewBox="0 0 24 24"
+        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg><svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg></button>
+    <a href="../index.html#work">Work</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+  </div>
+
+  <main>
+    <header class="project-hero">
+      <div class="container">
+        <a href="index.html" class="back-link">← Build Log</a>
+        <div class="project-meta reveal">
+          <span class="status-badge">Agent Memory · Post 2</span>
+        </div>
+        <h1 class="reveal">Memory That Doesn't Reach Everywhere Isn't Memory</h1>
+        <p class="lede reveal">Adding conversation history to the final answer prompt felt like the whole fix. It
+          wasn't — and figuring out why taught me more about agent architecture than the fix itself.</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <article class="project-section reveal blog-article">
+
+        <p>Once tool-calling was working — the agent could choose between semantic search, exact keyword search, and
+          file listing — the obvious next step was memory. Without it, every question was independent: no "tell me
+          more," no "what about X," nothing that resembled an actual conversation.</p>
+
+        <h2>The first attempt</h2>
+        <p>The fix looked simple: keep a running list of past question/answer pairs, and inject the last few turns
+          into the final prompt before generating an answer. I tested it with a natural follow-up:</p>
+
+        <ul class="feature-list">
+          <li><strong>You:</strong> "what is the purpose of this project"</li>
+          <li><strong>Agent:</strong> (accurate answer about the AI interview platform)</li>
+          <li><strong>You:</strong> "which file handles that?"</li>
+        </ul>
+
+        <p>The agent answered with total confidence: <code>app/auth/sign-in/[...sign-in]/page.jsx</code>. Completely
+          wrong — that's the sign-in page, unrelated to interview feedback.</p>
+
+        <h2>Finding the actual gap</h2>
+        <p>The history was in the final prompt. So why did it fail? Because by the time history reached the model,
+          the damage was already done. My agent doesn't go straight from question to answer — it first asks the model
+          to <em>choose a tool</em> and generate a search query. That routing step ran <strong>before</strong> the
+          final prompt, and it had zero access to conversation history.</p>
+
+        <p>So when "which file handles that?" hit the router, "that" had no referent. The router searched for the
+          literal string "that," retrieved five semantically-nearest-but-irrelevant files, and handed them to the
+          final prompt as if they were the answer. The history I'd added was real — it just arrived one step too
+          late to matter.</p>
+
+        <h2>The fix, and its limits</h2>
+        <p>I passed conversation history into the tool router too, with an explicit instruction to resolve pronouns
+          into a concrete search term before picking a tool. Result, second attempt:</p>
+
+        <ul class="feature-list">
+          <li><strong>You:</strong> "which file handles that?"</li>
+          <li><strong>Agent:</strong> chose <code>grep_exact('handle_that')</code> — then answered "I cannot
+            determine which file handles this without more context."</li>
+        </ul>
+
+        <p>Genuinely better — a wrong-but-confident answer became an honestly-uncertain one, which is the safer
+          failure mode. But it's not a full fix. <code>handle_that</code> isn't "that" resolved into a real concept;
+          it's the model still stuck between the pronoun and a coherent search term, just further along than before.</p>
+
+        <p>I tried a couple more phrasings and got the same pattern: partial resolution, then a stall. At that point
+          it stopped looking like a prompting bug and started looking like a capacity limit — turning a pronoun into
+          a search query is a small multi-step reasoning task (identify referent → recall the relevant concept → form
+          a query), and a 1.5B-parameter model run entirely on a laptop CPU doesn't reliably chain that many steps.</p>
+
+        <h2>Where I landed</h2>
+        <p>I documented it as a known limitation rather than chasing it further with prompt tweaks that were unlikely
+          to fix an underlying capacity issue. Two things I'd actually try if I revisit this: routing the pronoun
+          -resolution step through a larger model while keeping the small model for cheap, fast tool selection; or
+          resolving obvious pronouns with a lightweight heuristic in code before the question ever reaches the model
+          at all.</p>
+
+        <p>The bigger lesson generalizes past this one bug: in an agent with multiple steps, "adding memory" isn't a
+          single change — it's a question of which specific step actually needs the context, and confirming it gets
+          there.</p>
+
+      </article>
+
+      <div class="project-footer-nav">
+        <a href="hallucinated-folders.html">← My Agent Invented Folders That Don't Exist</a>
+        <a href="index.html">Build Log →</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Shuraim Asif Iqbal</p>
+      <div class="footer-links">
+        <a href="https://github.com/shuraimasifiqbal" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/muhammad-shuraim-05673b367/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+
+</html>

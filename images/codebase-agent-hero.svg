@@ -1,0 +1,42 @@
+<svg viewBox="0 0 1000 560" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .mono { font-family: 'JetBrains Mono', 'Consolas', monospace; }
+    </style>
+  </defs>
+  <rect width="1000" height="560" rx="12" fill="#0d1117"/>
+  <rect x="0" y="0" width="1000" height="40" rx="12" fill="#161b22"/>
+  <rect x="0" y="28" width="1000" height="12" fill="#161b22"/>
+  <circle cx="24" cy="20" r="6" fill="#ff5f56"/>
+  <circle cx="46" cy="20" r="6" fill="#ffbd2e"/>
+  <circle cx="68" cy="20" r="6" fill="#27c93f"/>
+  <text x="500" y="25" text-anchor="middle" class="mono" font-size="13" fill="#8b949e">codebase-agent — python agent.py</text>
+
+  <!-- banner -->
+  <rect x="24" y="60" width="500" height="60" rx="6" fill="none" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="40" y="85" class="mono" font-size="15" font-weight="600" fill="#22d3ee">Codebase Q&amp;A Agent</text>
+  <text x="40" y="105" class="mono" font-size="12" fill="#6e7681">Local · Free · RAG + Tool-Calling + Memory</text>
+
+  <text x="24" y="150" class="mono" font-size="13" fill="#3fb950">✓ Loaded 245 chunks across repos: interview-mocker</text>
+
+  <text x="24" y="190" class="mono" font-size="14" fill="#58a6ff" font-weight="600">You: </text>
+  <text x="70" y="190" class="mono" font-size="14" fill="#c9d1d9">what is the purpose of this project</text>
+
+  <text x="24" y="220" class="mono" font-size="12" fill="#6e7681">→ tool: search_codebase('what is the purpose of this project')  |  scope: interview-mocker</text>
+  <text x="24" y="240" class="mono" font-size="12" fill="#6e7681">  sources: app/questions/page.jsx, PROJECT_STRUCTURE_OVERVIEW, app/upgrade/page.jsx</text>
+
+  <!-- answer panel -->
+  <rect x="24" y="265" width="952" height="230" rx="8" fill="none" stroke="#3fb950" stroke-width="1.5"/>
+  <text x="500" y="290" text-anchor="middle" class="mono" font-size="13" font-weight="600" fill="#3fb950">Agent</text>
+  <line x1="24" y1="300" x2="976" y2="300" stroke="#21262d" stroke-width="1"/>
+
+  <text x="50" y="330" class="mono" font-size="13" fill="#c9d1d9">The purpose of the project appears to be an AI-based interview preparation</text>
+  <text x="50" y="355" class="mono" font-size="13" fill="#c9d1d9">platform. The code is designed to facilitate interactive, engaging mock</text>
+  <text x="50" y="380" class="mono" font-size="13" fill="#c9d1d9">interviews that use AI technology to provide personalized feedback and</text>
+  <text x="50" y="405" class="mono" font-size="13" fill="#c9d1d9">analysis based on candidate responses. This includes features like</text>
+  <text x="50" y="430" class="mono" font-size="13" fill="#c9d1d9">customizable job descriptions, real-time feedback generation, and detailed</text>
+  <text x="50" y="455" class="mono" font-size="13" fill="#c9d1d9">performance metrics to help candidates understand their strengths and</text>
+  <text x="50" y="480" class="mono" font-size="13" fill="#c9d1d9">areas for improvement.</text>
+
+  <text x="24" y="530" class="mono" font-size="14" fill="#58a6ff" font-weight="600">You: <tspan fill="#6e7681">▊</tspan></text>
+</svg>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Agent Invented Folders That Don't Exist | Shuraim Asif Iqbal</title>
+  <meta name="description"
+    content="Debugging a hallucination in a local RAG agent — why a small model invented folder names, and the one-chunk fix that solved it." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <script>if (localStorage.getItem("theme") === "light" || (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: light)").matches)) document.documentElement.classList.add("light-mode");</script>
+</head>
+
+<body>
+
+  <nav class="nav" aria-label="Primary">
+    <div class="container">
+      <a href="../index.html" class="logo">shuraim.dev</a>
+      <div class="nav-links">
+        <button class="theme-toggle" aria-label="Toggle theme"><svg class="sun" width="18" height="18"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg><svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg></button>
+        <a href="../index.html#work">Work</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+      </div>
+      <a href="../contact.html" class="nav-cta">Get in touch</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <button class="theme-toggle" aria-label="Toggle theme"><svg class="sun" width="18" height="18" viewBox="0 0 24 24"
+        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg><svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg></button>
+    <a href="../index.html#work">Work</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+  </div>
+
+  <main>
+    <header class="project-hero">
+      <div class="container">
+        <a href="index.html" class="back-link">← Build Log</a>
+        <div class="project-meta reveal">
+          <span class="status-badge">RAG · Post 1</span>
+        </div>
+        <h1 class="reveal">My Agent Invented Folders That Don't Exist</h1>
+        <p class="lede reveal">Debugging the first real bug in my codebase Q&amp;A agent — a textbook RAG
+          hallucination, and the fix that was smaller than the problem felt.</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <article class="project-section reveal blog-article">
+
+        <p>I'd just finished the first working version of my agent: a local RAG pipeline that ingests a codebase,
+          embeds it into ChromaDB, and answers questions about it using a small model running through Ollama. First
+          test question — <em>"what does this project do?"</em> — came back accurate and coherent. Good sign.</p>
+
+        <p>Second test broke it.</p>
+
+        <h2>The question</h2>
+        <p>I asked: <em>"how is the app organized — list the folders and their purpose?"</em> The agent answered
+          confidently with ten folders: <code>components/ui</code>, <code>common</code>, <code>features</code>,
+          <code>services</code>, <code>utils</code>, <code>hooks</code>, <code>styles</code>, <code>docs</code>,
+          <code>tests</code>, <code>entrypoints</code> — each with a plausible-sounding description of its
+          purpose.</p>
+
+        <p>The problem: my actual repo has <code>app/</code>, <code>components/ui/</code>, <code>hooks/</code>,
+          <code>lib/</code>, <code>public/</code>, and <code>utils/</code>. Most of what the agent listed simply
+          doesn't exist. It wasn't a vague or hedged answer either — it was confident, specific, and wrong.</p>
+
+        <h2>Why it happened</h2>
+        <p>Two things stacked on top of each other:</p>
+
+        <ul class="feature-list">
+          <li><strong>Retrieval had nothing to retrieve.</strong> My ingestion script chunked every code file into
+            50-line pieces, but nothing in the vector store actually described the repo's structure. When the query
+            embedding for "list the folders" ran against the database, the closest matches were UI component files —
+            not because they were relevant, but because they were the least-irrelevant thing available.</li>
+          <li><strong>The model filled the gap from memory.</strong> A 1.5B-parameter model has seen thousands of
+            Next.js projects during training, and <code>services/</code>, <code>hooks/</code>, and <code>tests/</code>
+            are extremely common folder names in that ecosystem. With no real structural data in its context, it
+            reached for the statistically likely answer instead of saying "I don't know."</li>
+        </ul>
+
+        <p>This is the textbook definition of a RAG hallucination: not the model "lying," but the model doing exactly
+          what language models do — predicting plausible text — when the retrieval step failed to constrain it with
+          real information.</p>
+
+        <h2>The fix</h2>
+        <p>The fix was smaller than I expected. Instead of trying to make the model behave better through prompting
+          alone, I gave retrieval something real to find. During ingestion, I now walk the actual repo tree and
+          generate a dedicated chunk — <code>PROJECT_STRUCTURE_OVERVIEW</code> — containing the real folder structure
+          as text, and store it in the vector database like any other chunk.</p>
+
+        <p>Re-running the same question, retrieval now pulls that overview chunk alongside the UI component files,
+          and the answer changed from ten invented folders to the actual ones — <code>app/</code>,
+          <code>components/ui</code>, and their real subfolders like <code>auth/</code> and <code>dashboard/</code>.
+        </p>
+
+        <h2>What I'd tell someone hitting this</h2>
+        <p>If a RAG agent hallucinates on a category of question, check whether the vector store actually contains an
+          answer to that category before touching the prompt. Prompting can reduce a model's willingness to guess,
+          but it can't manufacture information that was never retrieved. The fix here wasn't "tell the model not to
+          hallucinate" — it was "give retrieval a real document to find."</p>
+
+      </article>
+
+      <div class="project-footer-nav">
+        <a href="index.html">← Build Log</a>
+        <a href="pronoun-resolution.html">Next: Memory that doesn't reach everywhere →</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Shuraim Asif Iqbal</p>
+      <div class="footer-links">
+        <a href="https://github.com/shuraimasifiqbal" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/muhammad-shuraim-05673b367/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+
+</html>

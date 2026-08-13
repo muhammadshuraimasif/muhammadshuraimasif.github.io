@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Build Log | Shuraim Asif Iqbal</title>
+  <meta name="description"
+    content="Notes from building an AI agent from scratch — what broke, why, and how it got fixed." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <script>if (localStorage.getItem("theme") === "light" || (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: light)").matches)) document.documentElement.classList.add("light-mode");</script>
+</head>
+
+<body>
+
+  <nav class="nav" aria-label="Primary">
+    <div class="container">
+      <a href="../index.html" class="logo">shuraim.dev</a>
+      <div class="nav-links">
+        <button class="theme-toggle" aria-label="Toggle theme"><svg class="sun" width="18" height="18"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg><svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg></button>
+        <a href="../index.html#work">Work</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+      </div>
+      <a href="../contact.html" class="nav-cta">Get in touch</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <button class="theme-toggle" aria-label="Toggle theme"><svg class="sun" width="18" height="18" viewBox="0 0 24 24"
+        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg><svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg></button>
+    <a href="../index.html#work">Work</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+  </div>
+
+  <main>
+    <header class="project-hero">
+      <div class="container">
+        <a href="../index.html" class="back-link">← Home</a>
+        <div class="project-meta reveal">
+          <span class="status-badge">Build Log</span>
+        </div>
+        <h1 class="reveal">Building an AI Agent, In Public</h1>
+        <p class="lede reveal">Notes from building a local, zero-cost codebase Q&amp;A agent — what broke, why, and
+          how it got fixed. Written as it happened, not reconstructed after the fact.</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <section class="project-section reveal">
+        <div class="blog-list">
+
+          <a href="hallucinated-folders.html" class="blog-list-item">
+            <div class="blog-list-meta">
+              <span class="tag">RAG</span>
+              <span class="blog-date">Post 1</span>
+            </div>
+            <h3>My Agent Invented Folders That Don't Exist</h3>
+            <p>The first version of my codebase agent confidently listed folders like <code>services/</code> and
+              <code>tests/</code> — none of which were real. Here's why a small local model hallucinates, and the
+              one-chunk fix that stopped it.</p>
+          </a>
+
+          <a href="pronoun-resolution.html" class="blog-list-item">
+            <div class="blog-list-meta">
+              <span class="tag">Agent Memory</span>
+              <span class="blog-date">Post 2</span>
+            </div>
+            <h3>Memory That Doesn't Reach Everywhere Isn't Memory</h3>
+            <p>Adding conversation history to the final answer wasn't enough — follow-up questions still failed,
+              because the tool router never saw the history at all. What fixing half the pipeline taught me about
+              agent architecture.</p>
+          </a>
+
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Shuraim Asif Iqbal</p>
+      <div class="footer-links">
+        <a href="https://github.com/shuraimasifiqbal" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/muhammad-shuraim-05673b367/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+
+</html>

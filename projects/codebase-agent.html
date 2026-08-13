@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Codebase Q&amp;A Agent | Shuraim Asif Iqbal</title>
+  <meta name="description"
+    content="A local, zero-cost AI agent that answers questions about any codebase using RAG, tool-calling, and memory — no API keys, no cloud costs." />
+  <meta property="og:title" content="Codebase Q&amp;A Agent | Shuraim Asif Iqbal" />
+  <meta property="og:description" content="A local, zero-cost RAG agent with tool-calling and memory that answers questions about a codebase." />
+  <meta property="og:image" content="https://muhammadshuraimasif.github.io/images/codebase-agent-hero.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <script>if (localStorage.getItem("theme") === "light" || (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: light)").matches)) document.documentElement.classList.add("light-mode");</script>
+</head>
+
+<body>
+
+  <nav class="nav" aria-label="Primary">
+    <div class="container">
+      <a href="../index.html" class="logo">shuraim.dev</a>
+      <div class="nav-links">
+        <button class="theme-toggle" aria-label="Toggle theme"><svg class="sun" width="18" height="18"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg><svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg></button>
+        <a href="../index.html#work" class="active">Work</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+      </div>
+      <a href="../contact.html" class="nav-cta">Get in touch</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <button class="theme-toggle" aria-label="Toggle theme"><svg class="sun" width="18" height="18" viewBox="0 0 24 24"
+        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg><svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg></button>
+    <a href="../index.html#work">Work</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+  </div>
+
+  <main>
+    <header class="project-hero">
+      <div class="container">
+        <a href="../index.html#work" class="back-link">← All work</a>
+
+        <div class="project-meta reveal">
+          <span class="status-badge">AI Agent · Local-First</span>
+        </div>
+        <h1 class="reveal">Codebase Q&amp;A Agent</h1>
+        <p class="lede reveal">A local, zero-cost AI agent that answers questions about a codebase using RAG,
+          tool-calling, and conversational memory — no API keys, no cloud costs, runs entirely on-device.</p>
+
+        <div class="project-actions reveal">
+          <a href="https://github.com/shuraimasifiqbal/codebase-agent" target="_blank" rel="noopener"
+            class="btn btn-secondary">GitHub ↗</a>
+          <a href="../blog/index.html" class="btn btn-primary">Read the build log →</a>
+        </div>
+
+        <div class="hero-image-frame reveal">
+          <div class="chrome">
+            <span></span><span></span><span></span>
+            <span class="url">codebase-agent — local terminal</span>
+          </div>
+          <img class="hero-shot" src="../images/codebase-agent-hero.png"
+            alt="Codebase Q&amp;A Agent terminal interface showing a question and AI-generated answer with sources"
+            loading="lazy" />
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <section class="project-section reveal">
+        <h2>Overview</h2>
+        <p>Point this agent at any code repository and ask it questions in plain English — "how does the login flow
+          work," "find all the TODO comments," "what files exist in this project." It decides which tool to use,
+          retrieves the right context, and answers — all running locally with no API costs. Built to be the AI-stack
+          half of a capstone project: RAG, tool-calling, and agent memory, learned by building rather than by
+          tutorial.</p>
+      </section>
+
+      <section class="project-section reveal">
+        <h2>Features</h2>
+        <ul class="feature-list">
+          <li>Semantic search over an entire codebase using local embeddings and a vector database</li>
+          <li>Agentic tool-calling — the model picks between semantic search, exact keyword search, and file listing
+            based on the question</li>
+          <li>Multi-repo support with scoping — query one project or search across several at once</li>
+          <li>Conversational memory for natural follow-up questions</li>
+          <li>Runs 100% locally via Ollama — zero API cost, zero cloud dependency</li>
+        </ul>
+      </section>
+
+      <section class="project-section reveal">
+        <h2>Technology stack</h2>
+        <div class="stack-pills">
+          <span class="tag">Python</span>
+          <span class="tag">Ollama</span>
+          <span class="tag">ChromaDB</span>
+          <span class="tag">Sentence Transformers</span>
+          <span class="tag">RAG</span>
+          <span class="tag">Tool-Calling</span>
+        </div>
+      </section>
+
+      <section class="project-section reveal">
+        <h2>Challenges</h2>
+        <ul class="challenge-list">
+          <li><strong>Hallucinated folder structure.</strong> The agent confidently listed folders that didn't exist
+            in the real repo — the vector store had no chunk describing the actual project structure, so the small
+            local model filled the gap from its training data. Fixed by generating a real folder-tree chunk during
+            ingestion.</li>
+          <li><strong>Follow-up questions with pronouns.</strong> "Which file handles that?" initially searched for
+            the literal word "that." Passing conversation history into the tool-router improved the failure mode from
+            confidently wrong to honestly uncertain — but fully resolving pronouns turned out to be a genuine capacity
+            limit of a 1.5B-parameter model, not a prompting bug. Documented as a known limitation.</li>
+          <li><strong>Batch size limits.</strong> Naively ingesting an entire repo (including <code>node_modules</code>)
+            produced 17,000+ chunks and broke ChromaDB's insert batch size — fixed with proper exclusions and batched
+            inserts.</li>
+        </ul>
+      </section>
+
+      <section class="project-section reveal">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item"><img src="../images/codebase-agent-hero.png"
+              alt="Codebase agent answering a question about project structure" loading="lazy" /></div>
+          <div class="gallery-item"><img src="../images/codebase-agent-tools.png"
+              alt="Codebase agent choosing between tools" loading="lazy" /></div>
+          <div class="gallery-item"><img src="../images/codebase-agent-memory.png"
+              alt="Codebase agent using conversation memory for a follow-up question" loading="lazy" /></div>
+        </div>
+      </section>
+
+      <div class="project-footer-nav">
+        <a href="interview-mocker.html">← AI Interview Mocker</a>
+        <a href="../blog/index.html">Read the full build log →</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Shuraim Asif Iqbal</p>
+      <div class="footer-links">
+        <a href="https://github.com/shuraimasifiqbal" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/muhammad-shuraim-05673b367/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+
+</html>
